@@ -1,0 +1,200 @@
+.task-manager {
+  width: 100%;
+  max-width: 420px; /* Reverted back to 420px */
+  margin: 20px auto;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: auto;
+}
+
+.task-manager.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.task-manager.light {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.task-manager form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 100%;
+}
+
+.task-manager input[type="text"],
+.task-manager .task-display {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 0;
+  font-size: 2em;
+  font-family: 'Roboto', 'Open Sans', 'Lato', 'Helvetica', sans-serif;
+  font-weight: 300;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  transition: border-color 0.3s, color 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-manager input[type="text"] {
+  border-bottom: 1px solid #555;
+}
+
+.task-manager .task-display {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+}
+
+.task-manager .task-display span {
+  flex: 1;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.task-manager .task-display span.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-manager .task-display input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.task-manager input[type="text"]::placeholder {
+  color: #555;
+}
+
+.task-manager input[type="text"]:focus {
+  outline: none;
+  border-bottom-color: currentColor;
+}
+
+.task-manager input[type="text"]:focus,
+.task-manager input[type="text"]:active {
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+}
+
+.task-manager .task-display {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: none;
+}
+
+.task-manager .task-display span {
+  flex-grow: 1;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.task-manager .task-display input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #1a1a1a; /* Default to dark color for light mode */
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  margin-right: 20px; /* Reverted back to 20px */
+  position: relative;
+  vertical-align: middle;
+}
+
+.task-manager .task-display input[type="checkbox"]:checked {
+  background-color: #1a1a1a; /* Default to dark color for light mode */
+}
+
+.task-manager .task-display input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 4px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+/* Adjust colors for dark mode */
+.task-manager.dark .task-display input[type="checkbox"] {
+  border-color: #ffffff; /* White border for dark mode */
+}
+
+.task-manager.dark .task-display input[type="checkbox"]:checked {
+  background-color: #ffffff; /* White background when checked in dark mode */
+}
+
+.task-manager.dark .task-display input[type="checkbox"]:checked::after {
+  border-color: #1a1a1a; /* Dark checkmark for contrast in dark mode */
+}
+
+/* Specific color for light mode, if needed */
+.task-manager.light .task-display input[type="checkbox"] {
+  border-color: #1a1a1a;
+}
+
+.task-manager.light .task-display input[type="checkbox"]:checked {
+  background-color: #1a1a1a;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list li {
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+}
+
+.task-manager.light .task-list li {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.task-manager form,
+.task-list li {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.task-manager input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 0.5em;
+}
+.task-manager input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+  font-size: 0.5em;
+}
+.task-manager input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+  font-size: 0.5em;
+}
+.task-manager input[type="text"]:-moz-placeholder { /* Firefox 18- */
+  font-size: 0.5em;
+}
+
+.task-manager input[type="text"].task-entered {
+  border-bottom: none;
+}
+
+/* Optional: Allow wrapping for very long inputs */
+.task-manager input[type="text"].long-input {
+  white-space: normal;
+  word-wrap: break-word;
+}
